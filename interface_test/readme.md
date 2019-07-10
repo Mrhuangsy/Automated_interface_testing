@@ -19,9 +19,9 @@
 >>--test_data.py<br>  
 
 >---interface **存放单元测试文件**<br>  
->>--batch_dialog_manager_test.py<br>  
+>>--batch_dialogue_test.py<br>  
   --batch_myrobot_test.py<br>  
-  --dialog_manager_test.py<br>  
+  --dialogue_test.py<br>  
 
 >---log **存放日志文件**<br>  
 >>--logs<br>  
