@@ -308,7 +308,11 @@ function showOutput(id, name) {
 <style type="text/css" media="screen">
 body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
 table       { font-size: 100%; }
-pre         { }
+/*pre         { }*/
+pre {
+white-space: pre-wrap;
+word-wrap: break-word;
+}
 
 /* -- heading ---------------------------------------------------------------------- */
 h1 {
@@ -350,6 +354,9 @@ a.popup_link:hover {
     text-align: left;
     font-size: 8pt;
     width: 500px;
+    /*word-wrap:break-word;
+    word-break:break-all;
+    overflow:hidden;*/
 }
 
 }
@@ -475,7 +482,7 @@ a.popup_link:hover {
            [x]</a>
         </div>
         <pre>
-        %(script)s
+        %(script)s)
         </pre>
     </div>
     <!--css div popup end-->
@@ -765,8 +772,8 @@ class HTMLTestRunner(Template_mixin):
             # TODO: some problem with 'string_escape': it escape \n and mess up formating
             # uo = unicode(o.encode('string_escape'))
             # uo = o.decode('latin-1')
-            uo = e
-        else:
+            # uo = e
+        # else:
             uo = o
         if isinstance(e,str):
             # TODO: some problem with 'string_escape': it escape \n and mess up formating

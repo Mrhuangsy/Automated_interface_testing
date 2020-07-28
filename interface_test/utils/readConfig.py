@@ -29,5 +29,5 @@ class ReadConfig():
 
 readConfig = ReadConfig()
 if __name__ == '__main__':#测试一下，我们读取配置文件的方法是否可用
-    print('HTTP中的baseurl值为：', ReadConfig().get_http('baseurl'))
+    print('HTTP中的baseurl值为：', ReadConfig().get_http('cloudurl'))
     print('EMAIL中的开关on_off值为：', ReadConfig().get_email('on_off'))

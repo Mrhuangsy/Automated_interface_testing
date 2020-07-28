@@ -1,0 +1,66 @@
+{
+  "login": [
+    {   "api":"login/getLogin",
+        "header":{
+          "Content-Type":"application/json",
+          "appCode":"prod"
+        },
+        "body":{
+          "userName": "hsy",
+          "userPswd": "",
+          "isLogin": true,
+          "userIp": "127.0.0.1"
+        },
+        "expected_response":{
+            "code": 0,
+            "data": {
+                "sessionKey": ""
+            },
+            "message": "登录成功"
+        },
+        "note":"登录"
+    }
+  ],
+  "getToken": [
+    {   "api":"oauth2/token",
+        "header":{
+          "Content-Type":"application/json"
+        },
+        "body":{
+          "token": {
+            "sessionKey": "&s_key&",
+            "appCode": "prod"
+          }
+        },
+        "expected_response":{
+            "code": 0,
+            "data": "",
+            "message": "验证成功"
+        },
+        "note":"获取token"
+    }
+  ],
+  "buildPowerInterface": [
+    {   "api":"table/tableFieldList",
+        "header":{
+          "Content-Type":"application/json",
+          "Authorization": "&token&",
+          "AppCode": "prod"
+        },
+        "body":{
+          "tableName": "test_student"
+        },
+        "expected_response":{
+            "code": 0,
+            "data": {
+                "dbType": "oracle",
+                "fieldList": [],
+                "tableComment": "",
+                "tableName": "test_student"
+            },
+            "message": "查询成功"
+        },
+        "note":"获取表字段"
+    }
+  ]
+}

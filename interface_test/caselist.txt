@@ -1,3 +1,4 @@
-#batch_dialogue_test
-batch_myrobot_test
-#dialogue_test
+batch_cloud_test
+batch_java_test
+batch_login_test
+#login_test

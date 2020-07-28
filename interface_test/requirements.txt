@@ -1,3 +1,5 @@
 pymysql
 requests
 configparser
+lxml
+docx-mailmerge

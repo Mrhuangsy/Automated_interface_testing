@@ -21,19 +21,31 @@ class RunMain():
         result = requests.get(url=url, data=data)
         res = json.dumps(result, ensure_ascii=False, sort_keys=True, indent=2)
         return res
-    
+
     def send_get2(self, url, data=None):
         '''自定义get方法'''
         result = requests.get(url=url, data=data)
         res = result.json()
         return res
+
+    def send_post2(self, url,headers, data):# 定义一个方法，传入需要的参数url和data--带headers的post
+        # 参数必须按照url、data顺序传入
+        result = requests.post(url=url,headers=headers, data=data).json()# 因为这里要封装post方法，所以这里的url和data值不能写死
+        res = json.dumps(result, ensure_ascii=False, sort_keys=True, indent=2)
+        return res
+    def send_get3(self, url,headers, data=None):#带headers的get
+        '''自定义get方法'''
+        result = requests.get(url=url,headers=headers, data=data)
+        res = result.json()
+        return res
+
  
-    def run_main(self, method, url=None, data=None):#定义一个run_main函数，通过传过来的method来进行不同的get或post请求
+    def run_main(self, method, url=None,headers=None, data=None):#定义一个run_main函数，通过传过来的method来进行不同的get或post请求
         result = None
         if method == 'post':
-            result = self.send_post(url, data)
+            result = self.send_post2(url,headers, data)
         elif method == 'get':
-            result = self.send_get2(url, data)
+            result = self.send_get3(url,headers, data)
         else:
             print("method值错误！！！")
         return result

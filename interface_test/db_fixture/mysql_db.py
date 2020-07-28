@@ -55,7 +55,10 @@ class DB:
       real_sql = f"SELECT {column} FROM {table_name} WHERE 1=1"
       conditions = ""
       for key,value in table_data.items():
-          conditions += f" AND {key} = {value} "
+          if isinstance(value,list):
+            conditions += f" AND {key} in {value} "
+          elif isinstance(value,str):
+            conditions += f" AND {key} = '{value}' "
       real_sql += conditions
       print("查询语句：",real_sql)
       
@@ -88,6 +91,7 @@ class DB:
     for table, data in datas.items():
       self.clear(table)
       for d in data:
+        print("insert table :",table,"data:",d)
         self.insert(table, d)
     self.close()
  

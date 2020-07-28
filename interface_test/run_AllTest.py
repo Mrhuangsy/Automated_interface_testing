@@ -18,6 +18,7 @@ from db_fixture import test_data
 from utils.readConfig import readConfig
 from utils.configEmail import sendemail
 from utils.log import logger
+from utils.otherUtils import otherutils
  
 report_path = os.path.join(parentdir, 'report\\')
 on_off = readConfig.get_email('on_off')
@@ -47,16 +48,19 @@ class AllTest:#定义一个类AllTest
         """
         :return:
         """
+        logger.info("获取测试用例......")
         self.set_case_list()#通过set_case_list()拿到caselist元素组
         test_suite = unittest.TestSuite()
         suite_module = []
         for case in self.caseList:#从caselist元素组中循环取出case
             case_name = case.split("/")[-1]#通过split函数来将aaa/bbb分割字符串，-1取后面，0取前面
             print(case_name+".py")#打印出取出来的名称
+            logger.info(f"测试用例文件：{case_name}.py")
             #批量加载用例，第一个参数为用例存放路径，第一个参数为路径文件名
             discover = unittest.defaultTestLoader.discover(self.caseFile, pattern=case_name + '.py', top_level_dir=None)
             suite_module.append(discover)#将discover存入suite_module元素组
             print('suite_module:'+str(suite_module))
+            logger.info('suite_module:'+str(discover))
         if len(suite_module) > 0:#判断suite_module元素组是否存在元素
             for suite in suite_module:#如果存在，循环取出元素组内容，命名为suite
                 for test_name in suite:#从discover中取出test_name，使用addTest添加到测试集
@@ -64,6 +68,7 @@ class AllTest:#定义一个类AllTest
         else:
             print('else:')
             return None
+        logger.info("获取测试用例结束......")
         return test_suite#返回测试集
  
     def run(self):
@@ -83,8 +88,11 @@ class AllTest:#定义一个类AllTest
                 filename = report_path + self.fn
                 fp = open(filename, 'wb')#打开result/20181108/report.html测试报告文件，如果不存在就创建
                 #调用HTMLTestRunner
-                runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title='Test Report', description='Test Description:')
-                runner.run(suit)
+                runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title='Test Report', description='Test Description:cloud平台接口测试')
+                logger.info("运行测试用例......")
+                myresult = runner.run(suit)
+                otherutils.writeIntoModel(myresult.result)#写入word报告
+                logger.info("运行测试用例结束......")
             else:
                 logger.info("Have no case to test.")
         except Exception as ex:
@@ -111,6 +119,5 @@ class AllTest:#定义一个类AllTest
             print("邮件发送开关配置关闭，请打开开关后可正常自动发送测试报告")
         logger.info("=="*20)
 
- 
 if __name__ == '__main__':
     AllTest().run()
