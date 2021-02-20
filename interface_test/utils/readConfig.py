@@ -25,6 +25,12 @@ class ReadConfig():
     def get_mysql(self, name):#数据库配置
         value = config.get('mysqlconf', name)
         return value
+    def get_browser_type(self,name):#获取浏览器类型
+        value = config.get('browserType',name)
+        return value
+    def get_testServer(self,name):#获取web地址
+        value = config.get('testServer',name)
+        return value
  
 
 readConfig = ReadConfig()

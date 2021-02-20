@@ -19,21 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8170b4b3-f94b-409a-8df6-6b214720ac87" name="Default Changelist" comment="">
+    <list default="true" id="8170b4b3-f94b-409a-8df6-6b214720ac87" name="Default Changelist" comment="clear">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HTMLTestRunner.py" beforeDir="false" afterPath="$PROJECT_DIR$/HTMLTestRunner.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/caselist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/caselist.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_fixture/mysql_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_fixture/mysql_db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datas/usecase.json" beforeDir="false" afterPath="$PROJECT_DIR$/datas/usecase.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db_fixture/test_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_fixture/test_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interface/batch_dialogue_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interface/batch_myrobot_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interface/dialogue_test.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/log/logs" beforeDir="false" afterPath="$PROJECT_DIR$/log/logs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_AllTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_AllTest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/configHttp.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/configHttp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/readConfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/readConfig.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +75,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="otherUtils" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="basepage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="interface_test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -90,11 +83,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="C:\Users\huangsiyuan\AppData\Local\Programs\Python\Python37\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/db_fixture" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/interface" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/otherUtils.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/framework/basepage.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -111,7 +104,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="C:\Users\huangsiyuan\AppData\Local\Programs\Python\Python37\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/db_fixture" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/interface" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -145,7 +138,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for batch_java_test.BatchJavaTest" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for login_ui_test.LoginTest" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="interface_test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -157,11 +150,11 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;batch_java_test.BatchJavaTest&quot;" />
+      <option name="_new_target" value="&quot;login_ui_test.LoginTest&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest in batch_cloud_test.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for login_ui_test.LoginTest.test_beauty_dialog" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="interface_test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -173,11 +166,11 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/interface/batch_cloud_test.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <option name="_new_target" value="&quot;login_ui_test.LoginTest.test_beauty_dialog&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest in batch_java_test.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest in login_ui_test.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="interface_test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -189,25 +182,25 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/interface/batch_java_test.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/interface/login_ui_test.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Python.test_data" />
+      <item itemvalue="Python.basepage" />
       <item itemvalue="Python.run_AllTest" />
-      <item itemvalue="Python.otherUtils" />
-      <item itemvalue="Python tests.pytest in batch_cloud_test.py" />
-      <item itemvalue="Python tests.pytest in batch_java_test.py" />
-      <item itemvalue="Python tests.pytest for batch_java_test.BatchJavaTest" />
+      <item itemvalue="Python tests.pytest for login_ui_test.LoginTest" />
+      <item itemvalue="Python tests.pytest for login_ui_test.LoginTest.test_beauty_dialog" />
+      <item itemvalue="Python tests.pytest in login_ui_test.py" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.run_AllTest" />
-        <item itemvalue="Python.otherUtils" />
-        <item itemvalue="Python tests.pytest for batch_java_test.BatchJavaTest" />
-        <item itemvalue="Python tests.pytest in batch_java_test.py" />
-        <item itemvalue="Python tests.pytest in batch_cloud_test.py" />
+        <item itemvalue="Python tests.pytest for login_ui_test.LoginTest.test_beauty_dialog" />
+        <item itemvalue="Python tests.pytest in login_ui_test.py" />
+        <item itemvalue="Python.basepage" />
+        <item itemvalue="Python tests.pytest for login_ui_test.LoginTest" />
       </list>
     </recent_temporary>
   </component>
@@ -222,6 +215,21 @@
       <option name="presentableId" value="Default" />
       <updated>1562733643570</updated>
     </task>
+    <task id="LOCAL-00001" summary="添加word测试报告生成、本地json文件测试用例维护">
+      <created>1595906214248</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1595906214248</updated>
+    </task>
+    <task id="LOCAL-00002" summary="clear">
+      <created>1595906262192</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1595906262192</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -236,6 +244,11 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="添加word测试报告生成、本地json文件测试用例维护" />
+    <MESSAGE value="clear" />
+    <option name="LAST_COMMIT_MESSAGE" value="clear" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595395070757">
       <screen x="0" y="0" width="1366" height="728" />
@@ -249,42 +262,50 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1595395061636" />
-    <state width="1345" height="163" key="GridCell.Tab.0.bottom" timestamp="1595903399961">
+    <state width="1345" height="215" key="GridCell.Tab.0.bottom" timestamp="1602729506781">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="163" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1595903399961" />
-    <state width="1345" height="163" key="GridCell.Tab.0.center" timestamp="1595903399960">
+    <state width="1345" height="215" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602729506781" />
+    <state width="1345" height="215" key="GridCell.Tab.0.center" timestamp="1602729506781">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="163" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1595903399960" />
-    <state width="1345" height="163" key="GridCell.Tab.0.left" timestamp="1595903399960">
+    <state width="1345" height="215" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602729506781" />
+    <state width="1345" height="215" key="GridCell.Tab.0.left" timestamp="1602729506780">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="163" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1595903399960" />
-    <state width="1345" height="163" key="GridCell.Tab.0.right" timestamp="1595903399960">
+    <state width="1345" height="215" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602729506780" />
+    <state width="1345" height="215" key="GridCell.Tab.0.right" timestamp="1602729506781">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="163" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1595903399960" />
-    <state width="1345" height="223" key="GridCell.Tab.1.bottom" timestamp="1595238118236">
+    <state width="1345" height="215" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602729506781" />
+    <state width="1308" height="203" key="GridCell.Tab.1.bottom" timestamp="1596435714869">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1595238118236" />
-    <state width="1345" height="223" key="GridCell.Tab.1.center" timestamp="1595238118236">
+    <state width="1308" height="203" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1596435714869" />
+    <state width="1308" height="203" key="GridCell.Tab.1.center" timestamp="1596435714868">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1595238118236" />
-    <state width="1345" height="223" key="GridCell.Tab.1.left" timestamp="1595238118236">
+    <state width="1308" height="203" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1596435714868" />
+    <state width="1308" height="203" key="GridCell.Tab.1.left" timestamp="1596435714868">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1595238118236" />
-    <state width="1345" height="223" key="GridCell.Tab.1.right" timestamp="1595238118236">
+    <state width="1308" height="203" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1596435714868" />
+    <state width="1308" height="203" key="GridCell.Tab.1.right" timestamp="1596435714869">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1595238118236" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1595905003330">
+    <state width="1308" height="203" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1596435714869" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1595906291707">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1595905003330" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1595906291707" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1596175733180">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1596175733180" />
+    <state x="405" y="275" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1602726875517">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="405" y="275" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1366.728@0.0.1366.728" timestamp="1602726875517" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

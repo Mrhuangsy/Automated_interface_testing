@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Test Report</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+/*pre         { }*/
+pre {
+white-space: pre-wrap;
+word-wrap: break-word;
+}
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+    /*word-wrap:break-word;
+    word-break:break-all;
+    overflow:hidden;*/
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>Test Report</h1>
+<p class='attribute'><strong>Start Time:</strong> 2021-01-04 10:13:24</p>
+<p class='attribute'><strong>Duration:</strong> 0:01:06.468291</p>
+<p class='attribute'><strong>Status:</strong> Pass 5 Failure 10</p>
+
+<p class='description'>Test Description:cloud平台接口测试</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='failClass'>
+    <td>batch_localhost_test.BatchLocalhostTest: 供应链移动端接口测试</td>
+    <td>15</td>
+    <td>5</td>
+    <td>10</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',15)">Detail</a></td>
+</tr>
+
+<tr id='ft1.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_func_buildPowerInterface修改</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        fail</a>
+
+    <div id='div_ft1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.1: C:\Users\huangsiyuan\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)
+修改
+scm/AppSupplier/BaseUpdate
+接口请求参数： {'tableCode': 'SUPPLIER', 'param': {'my_name': '测试公司-修改', 'my_nickname': '哦豁啊啊啊'}, 'conditions': {'my_seq_no': 'SUP-2020-12-29-01'}}
+接口返回结果值： {'errcode': -1, 'errmsg': '执行操作语句为空!', 'isSucceed': False, 'json': '执行操作语句为空!'}
+Traceback (most recent call last):
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\interface\batch_localhost_test.py", line 40, in func
+    self.action(api,heards,data,expected_response,note)
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\interface\batch_localhost_test.py", line 32, in action
+    self.assertEqual(self.result['errcode'], expected_response['errcode'])
+AssertionError: -1 != 0
+
+)
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_func_buildPowerInterface删除</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
+
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.2: C:\Users\huangsiyuan\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)
+删除
+platform/Database/UpdateSql
+接口请求参数： {'dataSource': '', 'sql': 'f2dc49f743e7561d7d153385d0de26012f968387220ad1b2dc64ff437c3e0644e64e773656a0144bba71260ed00ba6032481be19ce8980a0c38d6f764548acff', 'json': [{'my_seq_no': 'SUP-2020-12-29-01'}], 'isEncrypt': True, 'commit': True}
+接口返回结果值： {'errcode': 0, 'errmsg': 'OK', 'isSucceed': True, 'json': '""', 'resCount': 0, 'resDataTable': None, 'resDateTime': '2021-01-04 10:13:33', 'resId': None, 'resMsg': ''}
+
+)
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.3' class='none'>
+    <td class='failCase'><div class='testcase'>test_func_buildPowerInterface新增</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.3')" >
+        fail</a>
+
+    <div id='div_ft1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.3: C:\Users\huangsiyuan\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)
+新增
+scm/AppSupplier/BaseInsert
+接口请求参数： {'tableCode': 'SUPPLIER', 'param': [{'my_seq_no': 'SUP-2020-12-29-01', 'my_name': '测试公司', 'my_nickname': '哦豁', 'my_relation': 'long_procurement', 'my_principal': '1174885438436020224', 'my_source': 'integrated_over'}]}
+接口返回结果值： {'errcode': 0, 'errmsg': '', 'isSucceed': True, 'json': '1345916263850971136'}
+Traceback (most recent call last):
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\interface\batch_localhost_test.py", line 40, in func
+    self.action(api,heards,data,expected_response,note)
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\interface\batch_localhost_test.py", line 34, in action
+    self.assertEqual(self.result['json'], expected_response['json'])
+AssertionError: '1345916263850971136' != 'success'
+- 1345916263850971136
++ success
+
+
+)
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.4' class='none'>
+    <td class='failCase'><div class='testcase'>test_func_buildPowerInterface查询</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.4')" >
+        fail</a>
+
+    <div id='div_ft1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.4: C:\Users\huangsiyuan\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)
+查询
+scm/AppSupplier/BaseQuery
+接口请求参数： {'tableCode': 'SUPPLIER', 'queryParam': ['my_seq_no', 'my_name', 'my_nickname', 'my_relation', 'my_principal', 'my_source'], 'pageSize': 10, 'pageIndex': 1, 'queryCondition': {'my_seq_no': 'SUP-2020-12-29-01'}, 'likeValue': ''}
+接口返回结果值： {'errcode': 0, 'errmsg': '', 'isSucceed': True, 'json': '{\r\n  "allTotal": "1",\r\n  "result": [\r\n    {\r\n      "my_seq_no": "SUP-2020-12-29-01",\r\n      "my_name": "测试公司",\r\n      "my_nickname": "哦豁",\r\n      "my_relation": "long_procurement",\r\n      "my_principal": "1174885438436020224",\r\n      "my_source": "integrated_over"\r\n    }\r\n  ]\r\n}'}
+Traceback (most recent call last):
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\interface\batch_localhost_test.py", line 40, in func
+    self.action(api,heards,data,expected_response,note)
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\interface\batch_localhost_test.py", line 34, in action
+    self.assertEqual(self.result['json'], expected_response['json'])
+AssertionError: '{\r\[109 chars]"测试公司",\r\n      "my_nickname": "哦豁",\r\n     [140 chars]r\n}' != '{\r\[109 chars]"测试公司-修改",\r\n      "my_nickname": "哦豁啊啊啊",\r\[146 chars]r\n}'
+  {
+    "allTotal": "1",
+    "result": [
+      {
+        "my_seq_no": "SUP-2020-12-29-01",
+-       "my_name": "测试公司",
++       "my_name": "测试公司-修改",
+?                       +++
+-       "my_nickname": "哦豁",
++       "my_nickname": "哦豁啊啊啊",
+?                         +++
+        "my_relation": "long_procurement",
+        "my_principal": "1174885438436020224",
+        "my_source": "integrated_over"
+      }
+    ]
+  }
+
+)
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.5' class='none'>
+    <td class='failCase'><div class='testcase'>test_func_buildPowerInterface查询供应商产品价格明细</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.5')" >
+        fail</a>
+
+    <div id='div_ft1.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.5: C:\Users\huangsiyuan\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)
+查询供应商产品价格明细
+scm/AppSupplier/SupplierSpecPriQuery
+接口请求参数： {'pageSize': 1, 'pageIndex': 1, 'likeValue': '', 'param': {}}
+接口返回结果值： {'errcode': 0, 'errmsg': '', 'isSucceed': True, 'json': '{\r\n  "allTotal": 93,\r\n  "result": [\r\n    {\r\n      "t_id": "1344195306421620736",\r\n      "client_id": "",\r\n      "org_id": "",\r\n      "my_detail_no": "1344179775815684096",\r\n      "spec_version": "PRI-20201230-005",\r\n      "my_material_no": "1344179370998239232",\r\n      "product_name": "芯片",\r\n      "my_supplier_no": "1341297727316824064",\r\n      "supplier_name": "南山集团有限公司",\r\n      "my_spec_no": "1344179592398770176",\r\n      "spec_name": "芯片100*1",\r\n      "my_total_min": "1",\r\n      "my_total_max": "999",\r\n      "my_price": "100",\r\n      "my_price_tax": "110",\r\n      "my_rate_tax": "10",\r\n      "my_remark": "",\r\n      "my_approve": "SCM_APR_PASS",\r\n      "approve_name": "审批通过",\r\n      "create_date": "2020/12/30 16:15:09",\r\n      "created_by": "詹晓燕",\r\n      "modify_ip": "117.30.131.171",\r\n      "modify_date": "",\r\n      "last_modified_by": "",\r\n      "act_status": "1"\r\n    }\r\n  ]\r\n}'}
+Traceback (most recent call last):
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\interface\batch_localhost_test.py", line 40, in func
+    self.action(api,heards,data,expected_response,note)
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\interface\batch_localhost_test.py", line 34, in action
+    self.assertEqual(self.result['json'], expected_response['json'])
+AssertionError: '{\r\n  "allTotal": 93,\r\n  "result": [\r\n    {\r\n      "t[890 chars]r\n}' != '{\r\n  "allTotal": 88,\r\n  "result": [\r\n    {\r\n      "t[893 chars]r\n}'
+Diff is 2414 characters long. Set self.maxDiff to None to see it.
+
+)
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.6' class='none'>
+    <td class='failCase'><div class='testcase'>test_func_buildPowerInterface查询供应商产品价格版本</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.6')" >
+        fail</a>
+
+    <div id='div_ft1.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.6: C:\Users\huangsiyuan\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)
+查询供应商产品价格版本
+scm/AppSupplier/SupplierSpecVerQuery
+接口请求参数： {'pageSize': 1, 'pageIndex': 1, 'likeValue': '', 'param': {}}
+接口返回结果值： {'errcode': 0, 'errmsg': '', 'isSucceed': True, 'json': '{\r\n  "allTotal": 88,\r\n  "result": [\r\n    {\r\n      "t_id": "1344179775815684096",\r\n      "client_id": "",\r\n      "org_id": "",\r\n      "my_seq_no": "PRI-20201230-005",\r\n      "my_material_no": "1344179370998239232",\r\n      "product_name": "芯片",\r\n      "my_supplier_no": "1341297727316824064",\r\n      "supplier_name": "南山集团有限公司",\r\n      "my_spec_no": "1344179592398770176",\r\n      "spec_name": "芯片100*1",\r\n      "my_dt_begin": "2020/12/1 15:13:33",\r\n      "my_dt_end": "2021/12/30 15:13:36",\r\n      "my_remark": "",\r\n      "my_attachment": "",\r\n      "my_doc_file": "",\r\n      "my_draft_no": "",\r\n      "my_user_no": "1161848169068367872",\r\n      "my_enable": "1",\r\n      "my_approve": "SCM_APR_PASS",\r\n      "approve_name": "审批通过",\r\n      "create_date": "2020/12/30 15:13:26",\r\n      "created_by": "曾旺",\r\n      "modify_ip": "120.227.30.139",\r\n      "modify_date": "",\r\n      "last_modified_by": "",\r\n      "act_status": "1"\r\n    }\r\n  ]\r\n}'}
+Traceback (most recent call last):
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\interface\batch_localhost_test.py", line 40, in func
+    self.action(api,heards,data,expected_response,note)
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\interface\batch_localhost_test.py", line 34, in action
+    self.assertEqual(self.result['json'], expected_response['json'])
+AssertionError: '{\r\n  "allTotal": 88,\r\n  "result": [\r\n    {\r\n      "t_[935 chars]r\n}' != '{\r\n  "allTotal": 87,\r\n  "result": [\r\n    {\r\n      "t_[942 chars]r\n}'
+Diff is 2489 characters long. Set self.maxDiff to None to see it.
+
+)
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.7' class='none'>
+    <td class='failCase'><div class='testcase'>test_func_buildPowerInterface查询供应商产品信息</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.7')" >
+        fail</a>
+
+    <div id='div_ft1.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.7: C:\Users\huangsiyuan\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)
+查询供应商产品信息
+scm/AppSupplier/SupplierMaterialQuery
+接口请求参数： {'pageSize': 1, 'pageIndex': 1, 'likeValue': '', 'param': {}}
+接口返回结果值： {'errcode': 0, 'errmsg': '', 'isSucceed': True, 'json': '{\r\n  "allTotal": 83,\r\n  "result": [\r\n    {\r\n      "t_id": "1344245952843747328",\r\n      "client_id": "",\r\n      "org_id": "",\r\n      "my_seq_no": "MAT-20201230-00009",\r\n      "my_detail_no": "1344233193062141952",\r\n      "supplier_name": "香港上海汇丰银行有限公司（证券业务）北京代表处",\r\n      "my_name": "手环",\r\n      "my_model": "4代",\r\n      "my_brand": "小米",\r\n      "my_unit": "PCS",\r\n      "unit_name": "件",\r\n      "my_atht_path": "",\r\n      "my_doc_file": "",\r\n      "my_key_words": "手环",\r\n      "my_remark": "",\r\n      "my_enable": "",\r\n      "my_user_no": "",\r\n      "my_approve": "",\r\n      "approve_name": "",\r\n      "my_draft_no": "",\r\n      "my_p_meaterialid": "",\r\n      "create_date": "2020-12-30 07:35:09",\r\n      "created_by": "黄思远",\r\n      "modify_ip": "192.168.92.48",\r\n      "modify_date": "",\r\n      "last_modified_by": "",\r\n      "act_status": "1"\r\n    }\r\n  ]\r\n}'}
+Traceback (most recent call last):
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\interface\batch_localhost_test.py", line 40, in func
+    self.action(api,heards,data,expected_response,note)
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\interface\batch_localhost_test.py", line 34, in action
+    self.assertEqual(self.result['json'], expected_response['json'])
+AssertionError: '{\r\n  "allTotal": 83,\r\n  "result": [\r\n    {\r\n      "t_[860 chars]r\n}' != '{\r\n  "allTotal": 81,\r\n  "result": [\r\n    {\r\n      "t_[873 chars]r\n}'
+Diff is 2055 characters long. Set self.maxDiff to None to see it.
+
+)
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.8' class='none'>
+    <td class='failCase'><div class='testcase'>test_func_buildPowerInterface查询供应商产品规格</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.8')" >
+        fail</a>
+
+    <div id='div_ft1.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.8: C:\Users\huangsiyuan\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)
+查询供应商产品规格
+scm/AppSupplier/SupplierSpecQuery
+接口请求参数： {'pageSize': 1, 'pageIndex': 1, 'likeValue': '', 'param': {}}
+接口返回结果值： {'errcode': 0, 'errmsg': '', 'isSucceed': True, 'json': '{\r\n  "allTotal": 87,\r\n  "result": [\r\n    {\r\n      "t_id": "1344179592398770176",\r\n      "client_id": "",\r\n      "org_id": "",\r\n      "my_user_no": "",\r\n      "my_approve": "SCM_APR_PASS",\r\n      "approve_name": "审批通过",\r\n      "my_default": "1",\r\n      "my_product_no": "1344179370998239232",\r\n      "product_name": "芯片",\r\n      "my_name": "芯片100*1",\r\n      "supplier_tid": "1341297727316824064",\r\n      "supplier_name": "南山集团有限公司",\r\n      "my_spec_unit": "PCS",\r\n      "spec_unit_name": "件",\r\n      "my_total": "100",\r\n      "my_day_delivery": "3",\r\n      "my_length": "2",\r\n      "my_length_unit": "cm",\r\n      "length_unit_name": "厘米",\r\n      "my_height": "2",\r\n      "my_height_unid": "cm",\r\n      "height_unit_name": "厘米",\r\n      "my_width": "2",\r\n      "my_width_unit": "cm",\r\n      "width_unit_name": "厘米",\r\n      "my_weight": "0",\r\n      "my_weight_unit": "",\r\n      "my_remark": "",\r\n      "create_date": "2020/12/30 15:12:43",\r\n      "created_by": "曾旺",\r\n      "modify_ip": "120.227.30.139",\r\n      "modify_date": "2020/12/30 15:12:53",\r\n      "last_modified_by": "曾旺",\r\n      "act_status": "1",\r\n      "my_draft_no": "",\r\n      "my_enable": "1"\r\n    }\r\n  ]\r\n}'}
+Traceback (most recent call last):
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\interface\batch_localhost_test.py", line 40, in func
+    self.action(api,heards,data,expected_response,note)
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\interface\batch_localhost_test.py", line 34, in action
+    self.assertEqual(self.result['json'], expected_response['json'])
+AssertionError: '{\r\n  "allTotal": 87,\r\n  "result": [\r\n    {\r\n      "t_[1188 chars]r\n}' != '{\r\n  "allTotal": 86,\r\n  "result": [\r\n    {\r\n      "t_[1191 chars]r\n}'
+Diff is 2485 characters long. Set self.maxDiff to None to see it.
+
+)
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.9' class='none'>
+    <td class='failCase'><div class='testcase'>test_func_buildPowerInterface查询供应商联系人</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.9')" >
+        fail</a>
+
+    <div id='div_ft1.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.9: C:\Users\huangsiyuan\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)
+查询供应商联系人
+scm/AppSupplier/SupplierContactQuery
+接口请求参数： {'pageSize': 1, 'pageIndex': 1, 'likeValue': '', 'param': {}}
+接口返回结果值： {'errcode': 0, 'errmsg': '', 'isSucceed': True, 'json': '{\r\n  "allTotal": 11,\r\n  "result": [\r\n    {\r\n      "t_id": "1341914830688358400",\r\n      "client_id": "",\r\n      "org_id": "",\r\n      "my_detail_no": "1341914746680643584",\r\n      "supplier_name": "上海绿洲投资控股集团有限公司",\r\n      "my_name": "绿洲",\r\n      "my_gender": "1",\r\n      "gender": "男",\r\n      "my_dept": "采购",\r\n      "my_duty": "采购员",\r\n      "my_mail_no": "1162827367@qq.com",\r\n      "my_mobile_no": "15280021220",\r\n      "my_phone_no": "",\r\n      "my_fax_no": "",\r\n      "my_qq_no": "",\r\n      "my_zip_no": "",\r\n      "my_remark": "",\r\n      "create_date": "2020-12-24 09:13:21",\r\n      "created_by": "詹晓燕",\r\n      "modify_ip": "117.30.131.171",\r\n      "modify_date": "0001/1/1 0:00:00",\r\n      "last_modified_by": "",\r\n      "act_status": "1"\r\n    }\r\n  ]\r\n}'}
+Traceback (most recent call last):
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\interface\batch_localhost_test.py", line 40, in func
+    self.action(api,heards,data,expected_response,note)
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\interface\batch_localhost_test.py", line 34, in action
+    self.assertEqual(self.result['json'], expected_response['json'])
+AssertionError: '{\r\[270 chars]r": "1",\r\n      "gender": "男",\r\n      "my_[492 chars]r\n}' != '{\r\[270 chars]r": "0",\r\n      "gender": "女",\r\n      "my_[448 chars]r\n}'
+Diff is 1122 characters long. Set self.maxDiff to None to see it.
+
+)
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_func_buildPowerInterface查询供应商财务信息</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.10')" >
+        pass</a>
+
+    <div id='div_pt1.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.10: C:\Users\huangsiyuan\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)
+查询供应商财务信息
+scm/AppSupplier/SupplierFinanceQuery
+接口请求参数： {'pageSize': 1, 'pageIndex': 1, 'likeValue': '', 'param': {}}
+接口返回结果值： {'errcode': 0, 'errmsg': '', 'isSucceed': True, 'json': '{\r\n  "allTotal": 12,\r\n  "result": [\r\n    {\r\n      "t_id": "1339409468353548288",\r\n      "client_id": "",\r\n      "org_id": "",\r\n      "customer_id": "1339409351693176832",\r\n      "supplier_name": "晨光生物科技集团股份有限公司",\r\n      "bank_account": "54252452452532452523534",\r\n      "bank_name": "中国建设银行",\r\n      "legal_representative": "财务",\r\n      "open_permit": "图上",\r\n      "create_date": "2020-12-17 11:17:56",\r\n      "created_by": "詹晓燕",\r\n      "modify_ip": "117.30.206.30",\r\n      "modify_date": "",\r\n      "last_modified_by": "",\r\n      "act_status": "1",\r\n      "open_permit_upload": "",\r\n      "my_doc_file": "",\r\n      "my_approve": "SCM_APR_PASS",\r\n      "approve_name": "审批通过"\r\n    }\r\n  ]\r\n}'}
+
+)
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_func_buildPowerInterface查询字典</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.11')" >
+        pass</a>
+
+    <div id='div_pt1.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.11: C:\Users\huangsiyuan\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)
+查询字典
+scm/AppSupplier/GetDictionary
+接口请求参数： {'dictCodeList': ['SCM_APR']}
+接口返回结果值： {'errcode': 0, 'errmsg': '', 'isSucceed': True, 'json': '{"SCM_APR":[{"dict_code":"SCM_APR_UNSUB","dict_name":"未提交"},{"dict_code":"SCM_APR_WAIT","dict_name":"正在审批"},{"dict_code":"SCM_APR_PASS","dict_name":"审批通过"},{"dict_code":"SCM_APR_REFUSE","dict_name":"审批拒绝"}]}'}
+
+)
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.12' class='none'>
+    <td class='failCase'><div class='testcase'>test_func_buildPowerInterface查询采购订单合同</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.12')" >
+        fail</a>
+
+    <div id='div_ft1.12' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.12').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.12: C:\Users\huangsiyuan\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)
+查询采购订单合同
+scm/AppSupplier/PurcaseContractQuery
+接口请求参数： {'pageSize': 1, 'pageIndex': 1, 'startDate': '', 'endDate': '', 'likeValue': ''}
+接口返回结果值： {'errcode': 0, 'errmsg': '', 'isSucceed': True, 'json': '{\r\n  "allTotal": 6,\r\n  "result": [\r\n    {\r\n      "t_id": "1342026923081076736",\r\n      "approve_name": "审批通过",\r\n      "my_approve": "SCM_APR_PASS",\r\n      "my_seq_no": "SBC-20201224-00002",\r\n      "my_name": "手表",\r\n      "my_order_no": "BOR-20201224-00050",\r\n      "my_discount": "0",\r\n      "my_amount_tax": "2400",\r\n      "my_rate_tax": "10",\r\n      "my_d_signed": "2020-12-24 12:00:00",\r\n      "my_d_deliver": "2021-12-22 12:00:00",\r\n      "my_d_prepay": "2020-12-24 12:00:00",\r\n      "my_d_arrive": "2021-12-24 12:00:00",\r\n      "my_d_last_check": "2021-12-24 12:00:00",\r\n      "my_doc_path": "",\r\n      "my_doc_file": "",\r\n      "my_remark": ""\r\n    }\r\n  ]\r\n}'}
+Traceback (most recent call last):
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\interface\batch_localhost_test.py", line 40, in func
+    self.action(api,heards,data,expected_response,note)
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\interface\batch_localhost_test.py", line 34, in action
+    self.assertEqual(self.result['json'], expected_response['json'])
+AssertionError: '{\r\n  "allTotal": 6,\r\n  "result": [\r\n    {\r\n      "t_[646 chars]r\n}' != '{\r\n  "allTotal": 1,\r\n  "result": [\r\n    {\r\n      "t_[654 chars]r\n}'
+Diff is 1609 characters long. Set self.maxDiff to None to see it.
+
+)
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_func_buildPowerInterface查询采购订单详情</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.13')" >
+        pass</a>
+
+    <div id='div_pt1.13' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.13').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.13: C:\Users\huangsiyuan\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)
+查询采购订单详情
+scm/AppSupplier/PurchaseOrderQuery
+接口请求参数： {'startFixtureDate': '', 'endFixtureDate': '', 'startArrivelDate': '', 'endArrivelDate': '', 'pageSize': 1, 'pageIndex': 1, 'param': {}, 'likeValue': ''}
+接口返回结果值： {'errcode': 0, 'errmsg': '', 'isSucceed': True, 'json': '{\r\n  "allTotal": 10,\r\n  "result": [\r\n    {\r\n      "t_id": "1342284108742660096",\r\n      "client_id": "",\r\n      "org_id": "",\r\n      "create_date": "2020-12-25 09:40:44",\r\n      "my_user_no": "zhanxiaoyan",\r\n      "my_approve": "",\r\n      "approve_name": "",\r\n      "my_enable": "1",\r\n      "my_seq_no": "BOR-20201225-00052",\r\n      "my_buy_no": "1342283665744465920",\r\n      "my_name": "",\r\n      "my_supplier_no": "",\r\n      "supplier_name": "",\r\n      "my_d_arrivel": "2021-12-25 09:34:12",\r\n      "my_fixture_date": "2020-12-25 09:40:44",\r\n      "my_state": "created",\r\n      "state_name": "已创建",\r\n      "my_remark": "",\r\n      "my_total_sum_tax": "420",\r\n      "my_contract_no": "",\r\n      "my_doc_path": "",\r\n      "my_doc_file": ""\r\n    }\r\n  ]\r\n}'}
+
+)
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.14' class='none'>
+    <td class='failCase'><div class='testcase'>test_func_buildPowerInterface获取组织架构用户信息</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.14')" >
+        fail</a>
+
+    <div id='div_ft1.14' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.14').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.14: C:\Users\huangsiyuan\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)
+获取组织架构用户信息
+scm/AppSupplier/SupplierSpecPriQuery
+接口请求参数： {'deptName': '', 'userName': '', 'likeVale': '黄思远'}
+接口返回结果值： {'errcode': -1, 'errmsg': '筛选的条件参数不能为空！', 'isSucceed': False, 'json': '{}'}
+Traceback (most recent call last):
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\interface\batch_localhost_test.py", line 40, in func
+    self.action(api,heards,data,expected_response,note)
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\interface\batch_localhost_test.py", line 32, in action
+    self.assertEqual(self.result['errcode'], expected_response['errcode'])
+AssertionError: -1 != 0
+
+)
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_func_buildPowerInterface采购订单确认</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.15')" >
+        pass</a>
+
+    <div id='div_pt1.15' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.15').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.15: C:\Users\huangsiyuan\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)
+采购订单确认
+scm/AppSupplier/PurchaseConfirm
+接口请求参数： {'tId': '', 'state': 0, 'reason': ''}
+接口返回结果值： {'errcode': -1, 'errmsg': '采购订单id不能为空', 'isSucceed': False, 'json': '采购订单id不能为空'}
+
+)
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>15</td>
+    <td>5</td>
+    <td>10</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>

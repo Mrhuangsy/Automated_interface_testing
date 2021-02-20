@@ -54,6 +54,39 @@ class otherUtils():
         return json_file
 
     #登录获取token - 请求参数从json文件中取得
+    def getToken_net(self,httpStr):
+        usecase = self.read_json_file(parentdir+'/datas/usecase_localhost.json')
+        javaurl = readConfig.get_http(httpStr)
+        session_key = ''
+        token = ''
+        for key,value in usecase.items():
+            if key == 'login':
+                for param in value:
+                    api = param.get('api','')
+                    heards = param.get('header',{})
+                    data = json.dumps(param.get('body',{})).encode('utf-8')
+                    login_result = runmain.run_main("post", javaurl + api, heards,
+                                                    data)
+                    if json.loads(login_result)['errmsg'] == 'OK' and json.loads(login_result)['json']['guid'] != '':
+                        session_key = json.loads(login_result)['json']['guid']
+                        break
+            if key == 'getToken' and session_key != '':
+                for _param in value:
+                    _api = _param.get('api','')
+                    _heards = _param.get('header',{})
+                    _body = _param.get('body', {})
+                    if _body: _body['sessionKey'] = session_key
+                    _data = json.dumps(_body).encode('utf-8')
+                    getToken_result = runmain.run_main("post", javaurl + _api, _heards,
+                                                    _data)
+                    if json.loads(getToken_result)['errmsg'] == 'OK' and json.loads(getToken_result)['json'] != '':
+                        token = json.loads(getToken_result)['json']
+                        break
+            if token != '':break
+
+        return token
+
+    #登录获取鉴权token - 请求参数从json文件中取得
     def getToken2(self):
         usecase = self.read_json_file('../datas/usecase.json')
         javaurl = readConfig.get_http('javaurl')
@@ -86,13 +119,14 @@ class otherUtils():
 
         return token
 
-    def writeIntoModel(self,test_result):
+    def writeIntoModel(self,test_result,save_index):
         '''
         使用MailMerge模块，可以在docx文件里设置邮件合并的域属性，然后根据域属性填入相应的值即可
         :param test_result:
         :return:
         '''
-        datetimetemplate = "../report/testModel.docx"
+        # datetimetemplate = "../report/testModel.docx"
+        datetimetemplate = parentdir+"/report/testModel.docx"
         document = MailMerge(datetimetemplate)
         number = 0
         result=''
@@ -116,15 +150,10 @@ class otherUtils():
             test_result_date.append(suit_result_dict)
 
         document.merge_rows("Single_NO",test_result_date)
-        document.write("../report/"+now+"_output.docx")
+        # document.write("../report/"+now+"_output.docx")
+        document.write(save_index+now+"_output.docx")
 
 
 otherutils = otherUtils()
 if __name__ == '__main__':  # 测试一下
-    # token = otherutils.getToken2()
-    # print(token)
-    datetimetemplate = "../report/testModel.docx"
-    document = MailMerge(datetimetemplate)
-    print(document.get_merge_fields())
-    document.merge(From='hsy199523@163.com',Title="自动化测试报告")
-    document.write("../report/output.docx")
+    pass

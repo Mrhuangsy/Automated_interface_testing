@@ -1,0 +1,27 @@
+1607916443821	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\HUANGS~1\\AppData\\Local\\Temp\\rust_mozprofile.Hqqw1Q0sqpqf"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1607916474950	Marionette	INFO	Listening on port 57795
+1607916475005	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 281: NS_ERROR_FAILURE: Should pass a non-null uri
+1607916730270	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\HUANGS~1\\AppData\\Local\\Temp\\rust_mozprofile.StzcywuOAaPG"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1607916740114	Marionette	INFO	Listening on port 57991
+1607916740280	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 281: NS_ERROR_FAILURE: Should pass a non-null uri
+1607916827749	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\HUANGS~1\\AppData\\Local\\Temp\\rust_mozprofile.p3RZeNjs2SZn"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1607916835637	Marionette	INFO	Listening on port 58101
+1607916836001	Marionette	WARN	TLS certificate errors will be ignored for this session
+1607917081656	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\HUANGS~1\\AppData\\Local\\Temp\\rust_mozprofile.uDdVvXLS9NNv"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1607917090120	Marionette	INFO	Listening on port 58443
+1607917090394	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 281: NS_ERROR_FAILURE: Should pass a non-null uri
+1607917204635	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\HUANGS~1\\AppData\\Local\\Temp\\rust_mozprofile.rFrDtgLHtwmU"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1607917212489	Marionette	INFO	Listening on port 58646
+1607917212635	Marionette	WARN	TLS certificate errors will be ignored for this session
+1607917311933	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\HUANGS~1\\AppData\\Local\\Temp\\rust_mozprofile.l7Bdv2zmR4IB"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1607917323173	Marionette	INFO	Listening on port 58759
+1607917323570	Marionette	WARN	TLS certificate errors will be ignored for this session

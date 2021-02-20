@@ -19,6 +19,7 @@ from utils.readConfig import readConfig
 from utils.configEmail import sendemail
 from utils.log import logger
 from utils.otherUtils import otherutils
+import utils.globalvar as globalvar
  
 report_path = os.path.join(parentdir, 'report\\')
 on_off = readConfig.get_email('on_off')
@@ -28,6 +29,10 @@ class AllTest:#定义一个类AllTest
 
         now = time.strftime("%Y-%m-%d %H_%M_%S")
         self.fn = now + '_result.html'#定义自动化测试文件名
+        now_day = time.strftime("%Y-%m-%d")
+        self.folder = report_path+'report_'+now_day+'\\' #新建一个文件加
+        if not os.path.exists(self.folder):
+            os.makedirs(self.folder)
         self.caseListFile = os.path.join(parentdir, "caselist.txt")#配置执行哪些测试文件的配置文件路径
         self.caseFile = os.path.join(parentdir, "interface")#真正的测试断言文件路径
         self.caseList = []
@@ -80,23 +85,26 @@ class AllTest:#定义一个类AllTest
         try:
             logger.info("自动化测试开始......")
             print("自动化测试开始......")
-            test_data.init_data() # 初始化接口测试数据
+            tokens = otherutils.getToken_net("cloudurl")#统一鉴权
+            globalvar.__init__()
+            globalvar.set_value("tokens",tokens)
+            # test_data.init_data() # 初始化接口测试数据
             suit = self.set_case_suite()#调用set_case_suite获取test_suite
 
-            if suit is not None:#判断test_suite是否为空
+            if suit is not None:#判断test_suite是否为空 
 
-                filename = report_path + self.fn
+                filename = self.folder + self.fn
                 fp = open(filename, 'wb')#打开result/20181108/report.html测试报告文件，如果不存在就创建
                 #调用HTMLTestRunner
                 runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title='Test Report', description='Test Description:cloud平台接口测试')
                 logger.info("运行测试用例......")
                 myresult = runner.run(suit)
-                otherutils.writeIntoModel(myresult.result)#写入word报告
+                otherutils.writeIntoModel(myresult.result,self.folder)#写入word报告
                 logger.info("运行测试用例结束......")
             else:
                 logger.info("Have no case to test.")
         except Exception as ex:
-            logger.info("test error:",str(ex))
+            logger.info("test error:"+str(ex))
             print("test error:",str(ex))
  
         finally:

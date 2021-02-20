@@ -1,0 +1,38 @@
+{
+  "login": [
+      {
+          "api": "",
+          "header": {
+          },
+          "body": {
+          },
+          "expected_response": {
+          },
+          "note": "登录"
+      }
+  ],
+  "getToken": [
+      {
+          "api": "",
+          "header": {
+          },
+          "body": {
+          },
+          "expected_response": {
+
+          },
+          "note": "获取token"
+      }
+  ],
+  "buildPowerInterface": [
+      {
+          "api": "",
+          "header": {
+          },
+          "body": {
+          },
+          "expected_response": {},
+          "note": ""
+      }
+  ]
+}
