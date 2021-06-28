@@ -689,10 +689,12 @@ class HTMLTestRunner(Template_mixin):
         for cid, (cls, cls_results) in enumerate(sortedResult):
             # subtotal for a class
             np = nf = ne = 0
+            hideornot = "hiddenRow"
             for n,t,o,e in cls_results:
                 if n == 0: np += 1
                 elif n == 1: nf += 1
                 else: ne += 1
+                if n != 0: hideornot = "none" # 同一组用例，只要有一个失败用例，就都不隐藏
 
             # format class description
             if cls.__module__ == "__main__":
@@ -715,7 +717,7 @@ class HTMLTestRunner(Template_mixin):
             rows.append(row)
 
             for tid, (n,t,o,e) in enumerate(cls_results):
-                self._generate_report_test(rows, cid, tid, n, t, o, e)
+                self._generate_report_test(rows, cid, tid, n, t, o, e,hideornot)
 
         report = self.REPORT_TMPL % dict(
             test_list = ''.join(rows),
@@ -728,7 +730,7 @@ class HTMLTestRunner(Template_mixin):
         return report
 
 
-    def _generate_report_test(self, rows, cid, tid, n, t, o, e):
+    def _generate_report_test(self, rows, cid, tid, n, t, o, e,hideornot):
         # e.g. 'pt1.1', 'ft1.1', etc
         has_output = bool(o or e)
         # ID修改点为下划线,支持Bootstrap折叠展开特效 - Findyou
@@ -772,7 +774,7 @@ class HTMLTestRunner(Template_mixin):
 
         row = tmpl % dict(
             tid = tid,
-            Class = (n == 0 and 'hiddenRow' or 'none'),
+            Class = hideornot, # (n == 0 and 'hiddenRow' or 'none'),
             style = n == 2 and 'errorCase' or (n == 1 and 'failCase' or 'passCase'),
             desc = desc,
             script = script,
