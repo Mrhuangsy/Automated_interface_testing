@@ -1,0 +1,2 @@
+crm_login_page_test
+crm_mycstmr_page_test

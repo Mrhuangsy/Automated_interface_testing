@@ -24,26 +24,31 @@ discover = unittest.defaultTestLoader.discover(test_dir, pattern='*_test.py')
  
 if __name__ == "__main__":
       
-  start_time = time.time()
-  logger.info("自动化测试开始......")
-  test_data.init_data() # 初始化接口测试数据
+  # start_time = time.time()
+  # logger.info("自动化测试开始......")
+  # test_data.init_data() # 初始化接口测试数据
 
-  now = time.strftime("%Y-%m-%d %H_%M_%S")
-  fn = now + '_result.html'
-  filename = './report/' + fn
-  fp = open(filename, 'wb')
-  runner = HTMLTestRunner(stream=fp,
-              title='Guest Manage System Interface Test Report',
-              description='Implementation Example with: ')
-  runner.run(discover)
-  fp.close()
-  end_time = time.time()
-  exec_time = (end_time - start_time)* 1000
-  logger.info(f"耗时{exec_time}ms")
-  logger.info("自动化测试结束......")
+  # now = time.strftime("%Y-%m-%d %H_%M_%S")
+  # fn = now + '_result.html'
+  # filename = './report/' + fn
+  # fp = open(filename, 'wb')
+  # runner = HTMLTestRunner(stream=fp,
+  #             title='Guest Manage System Interface Test Report',
+  #             description='Implementation Example with: ')
+  # runner.run(discover)
+  # fp.close()
+  # end_time = time.time()
+  # exec_time = (end_time - start_time)* 1000
+  # logger.info(f"耗时{exec_time}ms")
+  # logger.info("自动化测试结束......")
   
-  #发送邮件
-  logger.info("发送邮件......")
-  sendemail.send(fn)
-  logger.info("发送邮件完成......")
-  logger.info("=="*20)
+  # #发送邮件
+  # logger.info("发送邮件......")
+  # sendemail.send(fn)
+  # logger.info("发送邮件完成......")
+  # logger.info("=="*20)
+  a = 0
+  if(a):
+    print("in!!")
+  else:
+    print("out!")

@@ -52,4 +52,12 @@ class RunMain():
 runmain = RunMain()
 if __name__ == '__main__':#通过写死参数，来验证我们写的请求是否正确
     # result = RunMain().run_main('get', 'http://192.168.1.18:8001/dialog_manager/v1/marketing_robot?client_utterance=丰胸&active=True&no_user_response=False&enterprise_id=171686&session_id=a20515e8-a13a-11e9-89e9-e0d55e7e3d0c&rid=a2053cda-a13a-11e9-bcb7-e0d55e7e3d0c&uid=test', None)
-    pass
+    
+    url = ""
+    heards = {
+          }
+    data = {
+        }
+    data = json.dumps(data).encode('utf-8')
+    result = runmain.run_main("post", url, heards,data)
+    print(result)

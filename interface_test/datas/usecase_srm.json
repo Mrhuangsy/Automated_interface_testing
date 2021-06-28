@@ -1,38 +1,40 @@
 {
   "login": [
-      {
-          "api": "",
-          "header": {
-          },
-          "body": {
-          },
-          "expected_response": {
-          },
-          "note": "登录"
-      }
+    {
+      "api": "",
+      "header": {
+      },
+      "body": {
+      },
+      "expected_response": {
+      },
+      "note": "登录"
+    }
   ],
   "getToken": [
-      {
-          "api": "",
-          "header": {
-          },
-          "body": {
-          },
-          "expected_response": {
-
-          },
-          "note": "获取token"
-      }
+    {
+      "api": "",
+      "header": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+      },
+      "expected_response": {
+      },
+      "note": "获取token"
+    }
   ],
   "buildPowerInterface": [
-      {
-          "api": "",
-          "header": {
-          },
-          "body": {
-          },
-          "expected_response": {},
-          "note": ""
-      }
+    {
+      "api": "",
+      "header": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+      },
+      "expected_response": {
+      },
+      "note": "查询采购订单详情"
+    }
   ]
 }

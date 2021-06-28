@@ -2,6 +2,7 @@
   "login": [
     {   "api":"",
         "header":{
+          "Content-Type":"application/json"
         },
         "body":{
         },
@@ -13,6 +14,7 @@
   "getToken": [
     {   "api":"",
         "header":{
+          "Content-Type":"application/json"
         },
         "body":{
         },
@@ -22,12 +24,14 @@
     }
   ],
   "buildPowerInterface": [
-    {   "api":"",
+    {   "api":"t",
         "header":{
         },
         "body":{
         },
         "expected_response":{
+            },
+            "message": "查询成功"
         },
         "note":"获取表字段"
     }

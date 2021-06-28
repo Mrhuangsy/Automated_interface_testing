@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    
+<style type="text/css" media="screen">
+body        { font-family: Microsoft YaHei,Tahoma,arial,helvetica,sans-serif;padding: 20px; font-size: 80%; }
+table       { font-size: 100%; }
+/* -- heading ---------------------------------------------------------------------- */
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+/* -- report ------------------------------------------------------------------------ */
+#total_row  { font-weight: bold; }
+.passCase   { color: #5cb85c; }
+.failCase   { color: #d9534f; font-weight: bold; }
+.errorCase  { color: #f0ad4e; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+</style>
+
+</head>
+<body >
+<script language="javascript" type="text/javascript">
+output_list = Array();
+/*level 调整增加只显示通过用例的分类 --Findyou
+0:Summary //all hiddenRow
+1:Failed  //pt hiddenRow, ft none
+2:Pass    //pt none, ft hiddenRow
+3:All     //pt none, ft none
+*/
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level == 2 || level == 0 ) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level < 2) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+    }
+    //加入【详细】切换文字变化 --Findyou
+    detail_class=document.getElementsByClassName('detail');
+	//console.log(detail_class.length)
+	if (level == 3) {
+		for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="收起"
+		}
+	}
+	else{
+			for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="详细"
+		}
+	}
+}
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 0;
+    for (var i = 0; i < count; i++) {
+        //ID修改 点 为 下划线 -Findyou
+        tid0 = 't' + cid.substr(1) + '_' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className != "hiddenRow") {
+            toHide = 1;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        //修改点击无法收起的BUG，加入【详细】切换文字变化 --Findyou
+        if (toHide) {
+            document.getElementById(tid).className = 'hiddenRow';
+            document.getElementById(cid).innerText = "详细"
+        }
+        else {
+            document.getElementById(tid).className = '';
+            document.getElementById(cid).innerText = "收起"
+        }
+    }
+}
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+function imgShow(src,imgid){
+    document.getElementById("bigimg").src = src;//设置#bigimg元素的src属性
+    //获取当前点击图片的真实大小，并显示弹出层及大图
+    var realWidth = document.getElementById(imgid).naturalWidth;//获取图片真实宽度  
+    var realHeight = document.getElementById(imgid).naturalHeight;//获取图片真实高度 
+    var windowW = window.innerWidth;//获取当前窗口宽度  
+    var windowH = window.innerHeight;//获取当前窗口高度
+     
+    var imgWidth, imgHeight; 
+    var scale = 0.8;//缩放尺寸，当图片真实宽度和高度大于窗口宽度和高度时进行缩放
+
+    if(realHeight>windowH*scale) {//判断图片高度  
+         imgHeight = windowH*scale;//如大于窗口高度，图片高度进行缩放  
+         imgWidth = imgHeight/realHeight*realWidth;//等比例缩放宽度  
+         if(imgWidth>windowW*scale) {//如宽度仍大于窗口宽度  
+            imgWidth = windowW*scale;//再对宽度进行缩放  
+         }  
+      } else if(realWidth>windowW*scale) {//如图片高度合适，判断图片宽度  
+         imgWidth = windowW*scale;//如大于窗口宽度，图片宽度进行缩放  
+         imgHeight = imgWidth/realWidth*realHeight;//等比例缩放高度  
+      } else {//如果图片真实高度和宽度都符合要求，高宽不变  
+         imgWidth = realWidth;  
+         imgHeight = realHeight;  
+      }  
+
+      document.getElementById("bigimg").style.width = imgWidth;//以最终的宽度对图片缩放  
+      var w = (windowW-imgWidth)/2;//计算图片与窗口左边距  
+      var h = (windowH-imgHeight)/2;//计算图片与窗口上边距
+      document.getElementById("innerdiv").style.top = h;
+      document.getElementById("innerdiv").style.left = w;//设置#innerdiv的top和left属性  
+      //fadeIn(document.getElementById("outerdiv"));//淡入显示#outerdiv及.pimg 
+      document.getElementById("outerdiv").style.display = 'block';
+}
+function down(){
+    document.getElementById("outerdiv").style.display = 'none';
+}
+</script>
+<div class='heading'>
+<h1 style="font-family: Microsoft YaHei">测试报告</h1>
+<p class='attribute'><strong>测试人员 : </strong> 最棒QA</p>
+<p class='attribute'><strong>开始时间 : </strong> 2021-06-28 11:49:56</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:03:07.826572</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 8，通过 7，失败 1，通过率= 87.50%</p>
+
+<p class='description'>测试内容:客户关系管理系统UI自动化测试</p>
+</div>
+
+
+<p id='show_detail_line'>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 87.50% }</a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 1 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 7 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 8 }</a>
+</p>
+<table id='result_table' class="table table-condensed table-bordered table-hover">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 14px;">
+    <td>用例集/测试用例</td>
+    <td>总计</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>详细</td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>crm_login_page_test.testCrmLoginPage: crm-登录</td>
+    <td class="text-center">5</td>
+    <td class="text-center">5</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',5)" class="detail" id='c1'>详细</a></td>
+</tr>
+
+<tr id='pt1_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_01_wrong_username_login: 错误用户名登录</div></td>
+    <td colspan='3' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+    <div id='div_pt1_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_1' type="button"  class="btn btn-success btn-xs" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+    <div id='div_pt1_1' class="collapse">
+    <pre>
+    
+pt1_1: 输入用户名=''
+输入密码=''
+点击登录
+获取错误弹窗标题
+确定
+
+
+    </pre>
+    </div>
+    </td>
+    <td colspan='2' align='center'>
+    
+    </td>
+</tr>
+
+<tr id='pt1_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_02_wrong_pwd_login: 错误密码登录</div></td>
+    <td colspan='3' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
+    <div id='div_pt1_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_2' type="button"  class="btn btn-success btn-xs" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
+    <div id='div_pt1_2' class="collapse">
+    <pre>
+    
+pt1_2: 输入用户名='chency'
+输入密码='123456'
+点击登录
+获取错误弹窗标题
+确定
+
+
+    </pre>
+    </div>
+    </td>
+    <td colspan='2' align='center'>
+    
+    </td>
+</tr>
+
+<tr id='pt1_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_03_user_injection_login: 用户名SQL注入登录测试</div></td>
+    <td colspan='3' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_3'>通过</button>
+    <div id='div_pt1_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_3' type="button"  class="btn btn-success btn-xs" data-toggle="collapse" data-target='#div_pt1_3'>通过</button>
+    <div id='div_pt1_3' class="collapse">
+    <pre>
+    
+pt1_3: 输入用户名='attacker 'or'1=1'
+输入密码=''
+点击登录
+获取错误弹窗标题
+确定
+
+
+    </pre>
+    </div>
+    </td>
+    <td colspan='2' align='center'>
+    
+    </td>
+</tr>
+
+<tr id='pt1_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_04_pwd_injection_login: 密码SQL注入登录测试</div></td>
+    <td colspan='3' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_4'>通过</button>
+    <div id='div_pt1_4' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_4' type="button"  class="btn btn-success btn-xs" data-toggle="collapse" data-target='#div_pt1_4'>通过</button>
+    <div id='div_pt1_4' class="collapse">
+    <pre>
+    
+pt1_4: 输入用户名='hsy'
+输入密码='attackerpwd 'or'1=1'
+点击登录
+获取错误弹窗标题
+确定
+
+
+    </pre>
+    </div>
+    </td>
+    <td colspan='2' align='center'>
+    
+    </td>
+</tr>
+
+<tr id='pt1_5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_05_nomal_login: 正常登录</div></td>
+    <td colspan='3' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_5'>通过</button>
+    <div id='div_pt1_5' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_5' type="button"  class="btn btn-success btn-xs" data-toggle="collapse" data-target='#div_pt1_5'>通过</button>
+    <div id='div_pt1_5' class="collapse">
+    <pre>
+    
+pt1_5: 输入用户名=''
+输入密码=''
+点击登录
+获取重复登录弹窗
+打开设置
+点击退出
+确定
+
+
+    </pre>
+    </div>
+    </td>
+    <td colspan='2' align='center'>
+    
+    </td>
+</tr>
+
+<tr class='failClass warning'>
+    <td>crm_mycstmr_page_test.CrmMyCustomerPageTestCase: 我的客户</td>
+    <td class="text-center">3</td>
+    <td class="text-center">2</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c2',3)" class="detail" id='c2'>收起</a></td>
+</tr>
+
+<tr id='ft2_1' class='none'>
+    <td class='failCase'><div class='testcase'>test_01_add_customer: 测试用例01：添加客户信息</div></td>
+    <td colspan='3' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft2_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft2_1'>失败</button>
+    <div id='div_ft2_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft2_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft2_1'>失败</button>
+    <div id='div_ft2_1' class="collapse in">
+    <pre>
+    
+ft2_1: 打开新增客户页:
+切换到编辑页面
+输入客户名称：厦门科技
+选择第一个客户:厦门科技产业化集团有限公司
+输入客户昵称：Nti
+输入官网：http://cloud.nti56.com
+输入电话号码：0592-10293091
+输入传真：092013
+输入邮箱：cloudNti@163.com
+输入邮政编码：109293
+点击加载合作关系下拉
+选择第0个选项:一般
+点击加载客户类型下拉
+选择第0个选项：潜在客户
+点击加载客户级别下拉
+选择第0个选项：A级
+点击加载所属行业下拉
+选择第0个选项：IT
+输入备注：test测试123
+保存
+获取提示框
+确定添加客户权限
+返回
+切换到我的客户页面: iframe1201411886870020098
+获取客户列表信息:
+[['厦门科技产业化集团有限公司', 'Nti', 'http://127.0.0.1', '0592-10293091', '092013', 'cloudNti@163.com', '109293', '一般', '潜在客户', 'A级', 'IT', 'test测试123', '2021-06-25', '10:30:53', '黄思远'], ['深圳市博丰精密机械有限公司', '2039-82930981', '362901', '重要', '其它', '2021-04-14', '16:12:41', '黄思远'], ['深圳市鸿顺捷电子有限公司', '2039-82930981', '362901', '重要', '其它', '2021-04-14', '16:12:41', '黄思远'], ['昆山众思自动化科技有限公司', '2039-82930981', '362901', '重要', '其它', '2021-04-14', '16:12:41', '黄思远']]
+失败截图已保存到：test_01_add_customer_2021-06-28 11_52_36.png
+Traceback (most recent call last):
+  File "c:\MyWorkspace\pyproject\Automated_interface_testing\interface_test\framwork_test_case\crm_mycstmr_page_test.py", line 85, in test_01_add_customer
+    self.assertIn("http://cloud.nti56.com", cstmr_data[0],"官网地址错误")
+utils.unittest_custom.TestCaseCustom.failure_monitor.&lt;locals&gt;.AssertionErrorPlus: 'http://cloud.nti56.com' not found in ['厦门科技产业化集团有限公司', 'Nti', 'http://127.0.0.1', '0592-10293091', '092013', 'cloudNti@163.com', '109293', '一般', '潜在客户', 'A级', 'IT', 'test测试123', '2021-06-25', '10:30:53', '黄思远'] : 官网地址错误
+失败截图已保存到：test_01_add_customer_2021-06-28 11_52_36.png
+
+
+    </pre>
+    </div>
+    </td>
+    <td colspan='2' align='center'>
+    
+    <img id='img_ft2_1' src='./test_01_add_customer_2021-06-28 11_52_36.png' style='width:100px;height:80px' onclick='imgShow("./test_01_add_customer_2021-06-28 11_52_36.png","img_ft2_1")' />
+    
+    </td>
+</tr>
+
+<tr id='pt2_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_02_edit_customer: 测试用例02：修改指定客户信息</div></td>
+    <td colspan='3' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_2'>通过</button>
+    <div id='div_pt2_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_2' type="button"  class="btn btn-success btn-xs" data-toggle="collapse" data-target='#div_pt2_2'>通过</button>
+    <div id='div_pt2_2' class="collapse">
+    <pre>
+    
+pt2_2: 切换到我的客户页面: iframe1201411886870020098
+打开第0行编辑客户页面
+切换到编辑页面
+输入官网：http://127.0.0.1
+保存并退出
+切换到我的客户页面: iframe1201411886870020098
+获取客户列表信息:
+[['厦门科技产业化集团有限公司', 'Nti', 'http://127.0.0.1', '0592-10293091', '092013', 'cloudNti@163.com', '109293', '一般', '潜在客户', 'A级', 'IT', 'test测试123', '2021-06-25', '10:30:53', '黄思远'], ['深圳市博丰精密机械有限公司', '2039-82930981', '362901', '重要', '其它', '2021-04-14', '16:12:41', '黄思远'], ['深圳市鸿顺捷电子有限公司', '2039-82930981', '362901', '重要', '其它', '2021-04-14', '16:12:41', '黄思远'], ['昆山众思自动化科技有限公司', '2039-82930981', '362901', '重要', '其它', '2021-04-14', '16:12:41', '黄思远']]
+
+
+    </pre>
+    </div>
+    </td>
+    <td colspan='2' align='center'>
+    
+    </td>
+</tr>
+
+<tr id='pt2_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_03_delete_customer: 测试用例03：删除指定客户信息</div></td>
+    <td colspan='3' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_3'>通过</button>
+    <div id='div_pt2_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_3' type="button"  class="btn btn-success btn-xs" data-toggle="collapse" data-target='#div_pt2_3'>通过</button>
+    <div id='div_pt2_3' class="collapse">
+    <pre>
+    
+pt2_3: 切换到我的客户页面: iframe1201411886870020098
+获取第0行记录
+获取客户列表信息:
+[['厦门科技产业化集团有限公司', 'Nti', 'http://127.0.0.1', '0592-10293091', '092013', 'cloudNti@163.com', '109293', '一般', '潜在客户', 'A级', 'IT', 'test测试123', '2021-06-25', '10:30:53', '黄思远'], ['深圳市博丰精密机械有限公司', '2039-82930981', '362901', '重要', '其它', '2021-04-14', '16:12:41', '黄思远'], ['深圳市鸿顺捷电子有限公司', '2039-82930981', '362901', '重要', '其它', '2021-04-14', '16:12:41', '黄思远'], ['昆山众思自动化科技有限公司', '2039-82930981', '362901', '重要', '其它', '2021-04-14', '16:12:41', '黄思远']]
+第0行记录为： ['厦门科技产业化集团有限公司', 'Nti', 'http://127.0.0.1', '0592-10293091', '092013', 'cloudNti@163.com', '109293', '一般', '潜在客户', 'A级', 'IT', 'test测试123', '2021-06-25', '10:30:53', '黄思远']
+删除记录
+确认删除
+获取客户列表信息:
+[['深圳市博丰精密机械有限公司', '2039-82930981', '362901', '重要', '其它', '2021-04-14', '16:12:41', '黄思远'], ['深圳市鸿顺捷电子有限公司', '2039-82930981', '362901', '重要', '其它', '2021-04-14', '16:12:41', '黄思远'], ['昆山众思自动化科技有限公司', '2039-82930981', '362901', '重要', '其它', '2021-04-14', '16:12:41', '黄思远']]
+
+
+    </pre>
+    </div>
+    </td>
+    <td colspan='2' align='center'>
+    
+    </td>
+</tr>
+
+<tr id='total_row' class="text-center active">
+    <td>总计</td>
+    <td>8</td>
+    <td>7</td>
+    <td>1</td>
+    <td>0</td>
+    <td>通过率：87.50%</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+    <div style=" position:fixed;right:50px; bottom:30px; width:20px; height:20px;cursor:pointer">
+    <a href="#"><span class="glyphicon glyphicon-eject" style = "font-size:30px;" aria-hidden="true">
+    </span></a></div>
+    
+<div>
+        <div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:2;width:100%;height:100%;display:none;"  onclick="down()">
+            <div id="innerdiv" style="position:absolute;">
+            <img id="bigimg" style="border:5px solid #fff;" src="" />
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

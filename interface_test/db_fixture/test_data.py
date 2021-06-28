@@ -24,12 +24,12 @@ note：备注
 datas = {
   'cloud_test_case':[
       {
-        'flag':'select_all_service',
-        'api':'MicroManagement/SelectMicroServices',
-        'header':'',
+        'flag':'login',
+        'api':'',
+        'header':'{"Content-Type":"application/json"}',
         'body':'',
         'expected_response':'',
-        'note':'查询所有服务测试'}
+        'note':'登录接口测试'}
   ]
 }
  

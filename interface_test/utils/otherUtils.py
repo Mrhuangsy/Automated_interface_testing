@@ -53,7 +53,7 @@ class otherUtils():
             json_file = json.load(f,object_pairs_hook=OrderedDict)
         return json_file
 
-    #登录获取token - 请求参数从json文件中取得
+    #登录获取token - 请求参数从json文件中取得-.NET平台
     def getToken_net(self,httpStr):
         usecase = self.read_json_file(parentdir+'/datas/usecase_localhost.json')
         javaurl = readConfig.get_http(httpStr)
@@ -86,7 +86,7 @@ class otherUtils():
 
         return token
 
-    #登录获取鉴权token - 请求参数从json文件中取得
+    #登录获取token - 请求参数从json文件中取得-java平台
     def getToken2(self):
         usecase = self.read_json_file('../datas/usecase.json')
         javaurl = readConfig.get_http('javaurl')
@@ -156,4 +156,11 @@ class otherUtils():
 
 otherutils = otherUtils()
 if __name__ == '__main__':  # 测试一下
+    # token = otherutils.getToken2()
+    # print(token)
+    # datetimetemplate = "../report/testModel.docx"
+    # document = MailMerge(datetimetemplate)
+    # print(document.get_merge_fields())
+    # document.merge(From='hsy199523@163.com',Title="自动化测试报告")
+    # document.write("../report/output.docx")
     pass

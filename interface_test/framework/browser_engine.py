@@ -21,7 +21,7 @@ class Browser(object):
             self.driver = webdriver.Chrome()
         elif browser == 'IE':
             self.driver = webdriver.Ie()
-        self.driver.set_window_size(0.8*win32api.GetSystemMetrics(win32con.SM_CXSCREEN),0.8*win32api.GetSystemMetrics(win32con.SM_CYSCREEN)) #分辨率
+        self.driver.set_window_size(0.9*win32api.GetSystemMetrics(win32con.SM_CXSCREEN),0.9*win32api.GetSystemMetrics(win32con.SM_CYSCREEN)) #分辨率
         #print(url)
         self.driver.get(url)
         return self.driver
